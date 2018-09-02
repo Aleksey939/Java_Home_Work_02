@@ -16,18 +16,18 @@ class FullListException extends ListException {
 
 }
 
-class List {
-    Object[] obj;
+class List <T>{
+    T[] obj;
     int size = -1;
     int cur = -1;
 
     List(int size) {
         cur = 0;
         this.size = size;
-        obj = new Object[size];
+        obj = new T[size];
     }
 
-    void add(Object item) throws FullListException {
+    void add(T item) throws FullListException {
         obj[cur++] = item;
         if (cur >= size)
         {
@@ -56,7 +56,7 @@ class List {
 
 public class Main {
     public static void main(String[] args) {
-        List list = new List(1);
+        List<Integer> list = new List<Integer>(1);
         try {
             list.add(265);
             list.add(265);
